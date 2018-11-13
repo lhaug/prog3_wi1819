@@ -1,98 +1,36 @@
 #include <stdio.h>
 
+#include <string.h>
 #include <ctype.h>
 
 void soundex(const char s[], char res[]){
-	char *lookpoint;
-	char *insertpoint;
-	int length;
-	char akt;
-	char insert;
-	int i;
+	int i, j, prev;
+	char *z[] = {"BFPV", "CGJKQSXZ", "DT", "L", "MN", "R"}, int_char[32];
 	
-	
-	char tabelle[][2] = {'B','1',
-						'F','1',
-						'P','1',
-						'V','1',
-						'C','2',
-						'G','2',
-						'J','2',
-						'K','2',
-						'Q','2',
-						'S','2',
-						'X','2',
-						'Z','2',
-						'D','3',
-						'T','3',
-						'L','4',
-						'M','5',
-						'N','5',
-						'R','6'};
-	/*tabelle[] = "111122222222334556";*/
-	
-	length = 0;
-	
-	lookpoint = s;
-	insertpoint = res;
-	
+	res[1]='\0';
 	
 	/*schritt 1*/
-	*insertpoint = toupper(*lookpoint);
-	length ++;
-	lookpoint ++;	
-	printf("%s",insertpoint);
+	res[0]=toupper(s[0]);
 	
-	/*schritt 2*/
-	while(length <= 6){
-		
-		if(*lookpoint == '\n'){ /* mit Nullen auffülen*/
-			insertpoint++;
-			*insertpoint = '0';
-			length++;
-			printf("%s",insertpoint);
-			
-		}else{
-			insert = *insertpoint;
-			
-			akt = toupper(*lookpoint);
-			
-			for(i=0; i<19; i++){
-				if (akt == tabelle[0][i]){
-					insert = tabelle[1][i];
-					break;
-				}
+	/*schirtt 2*/
+	for(i=1; s[i]!='\0';i++){
+		for(j=0; j<6; j++){
+			if(strchr(*(z+j),toupper(*(s+i))) != NULL && prev != j){
+				prev = j;
+				sprintf(int_char,"%d", j+1);
+				strcat(res, int_char);
 			}
-			
-			
-			if(insert != *insertpoint){
-				insertpoint ++;
-				*insertpoint = insert;
-				length++;
-				printf("%s",insertpoint);
-			}
-			lookpoint++;
 		}
-		
-		
 	}
-	insertpoint ++;
-	*insertpoint = '\0';
-	
-	return;
-	
-}
-
-void ausgabe (char res[]){
-	char *point;
-	
-	point = res;
-	
-	while(*point != '\0'){
-		printf("%s",point);
-		point++;
+	/*mit Nullen auffüllen*/
+	for(i=1;i<6;i++){
+		if(!res[i]){
+			strcat(res,"0");
+		}
 	}
-	return;
+	/*ausgeben und res leeren*/
+	printf("%s\n", res);
+	res[0] = '\0';
 }
 
 int main (void){
@@ -102,7 +40,6 @@ int main (void){
 	
 	while(scanf("%s", eingabe) != EOF){
 		soundex(eingabe, res);
-		/*ausgabe(res);*/
 		printf("\n");
 	}
 
