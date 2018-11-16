@@ -1,43 +1,97 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <assert.h>
 #include <string.h>
 
 typedef struct Person{
 	char name[25];
 	struct Person *next;
-}person;
+}Person;
 
-int einfuegen(char name[], struct Person *akt){
-	struct Person *pers;
-	pers = malloc(sizeof(struct Person));
-	if(!pers) return 1; /*malloc fehler- Ende*/
+Person *neuerKnoten(void){
+	Person *p;
 	
-	strcpy(pers->name,name);
+	p = malloc(sizeof(struct Person));
+	assert(p);
+	p->name[0] = '\0';
+	p->next = NULL;
 	
-	if (akt == 0){
-		akt = pers;
-	}else{
-		akt->next = pers;
-	}
-	return 0;
+	return p;
 }
 
-void loeschen(struct Person *del){
+Person* einfuegen(char *newname, Person *anfang){
+	Person *pers = anfang;
+	
+	if(anfang == (Person*)NULL){
+		anfang = neuerKnoten();
+		anfang->next = anfang; /*weil kreis*/
+		strcpy(anfang->name, newname);
+	}else{
+		while(pers->next != anfang){
+			pers = pers->next;
+		} 	
+		pers->next = neuerKnoten();
+		pers = pers->next;
+		pers->next = anfang;
+		strcpy(pers->name, newname);
+	}
+	
+	return anfang;
+}
+
+void loeschen(Person *del){
 	free(del);
 	return;
 }
 
+Person* abzaehlen(Person *anfang, int count){
+	
+	/*warum geht das ohne dass aktPers oder vorPers auf anfang stehen?
+		 * ansonsten: 
+		 * 
+		 * Person *vorPers;
+			Person *aktPers = anfang;
+			int i;
+			for(i=1; i < count-1; i++){ --dann muss aber eins kürzer gezählt werden
+				vorPers=aktPers;
+				aktPers=aktPers->next;
+			}
+		 * 
+		 * */
+		 
+	Person *vorPers;
+	Person *aktPers;
+	int i;
+	for(i=1; i < count; i++){
+		vorPers=aktPers;
+		aktPers=aktPers->next;
+	}
+	vorPers->next=aktPers->next;
+	printf("%s\n",aktPers->name);
+	anfang=aktPers->next;
+	loeschen(aktPers);	
+	return anfang;
+}
+
 
 int main (int argc, char *argv[]){
+	
+	/*argc = 8 wenn 7 Worte eingegeben*/
 		
-	struct Person *anfang;
-	struct Person *akt = 0;
+	Person *anfang = NULL;
 	char name[25];
 	
 	while(scanf("%s", name) != EOF){
-		einfuegen(name, akt);
-		printf("%s\n", akt->name);
+		anfang = einfuegen(name, anfang);
+		printf("eingefuegt: %s\n", anfang->name);
 	}
+	
+	while(anfang->next != anfang){
+		anfang = abzaehlen(anfang, argc);
+	}
+	
+	printf("%s -Gewinner/Looser\n",anfang->name);
+	loeschen(anfang);
 	
 	return 0;
 }
