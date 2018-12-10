@@ -5,8 +5,13 @@ a19: a19.c
 			
 
 run: a19
+	./a19
+	
+test: a19
 	valgrind ./a19
-
+	
+bug: a19
+	nemiver ./a19
 
 clean: 
 	rm a19

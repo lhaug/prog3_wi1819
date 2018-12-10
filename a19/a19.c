@@ -4,25 +4,29 @@
 double regula(double x1, double x2, double (*f) (double)){
 	double xs;
 	int vorzeichenGleich = 0; /*0 = false, 1 = true*/
-	double fxs, fx1, betrag;
+	double fxs, fx1, fx2, betrag;
 	
-	if(x1 != x2){
+	/**
+	 * if(x1 != x2){
 		if( f(x1)*f(x2) < 0){
 			xs = x1 - f(x1)*(( x2-x1 )/( f(x2)-f(x1) ));
 		}
 	}else{
 		perror("grund");
-		/*printf("error");*/
-		return 0; /*error*/
-	}
+		printf("error");
+	} 
+	*/	
+	fx1 = f(x1);
+	fx2 = f(x2);
+	
+	xs = x1 - (fx1)*(( x2-x1 )/( (fx2)-(fx1) ));
 	
 	fxs = f(xs);
-	fx1 = f(x1);
+	
 		
-	/*weiter suchen*/
-	if(fxs < 0 && fx1 < 0){
+	if((fxs < 0) && (fx1 < 0)){
 		vorzeichenGleich = 1;
-	}else if(fxs >0 && fx1 >0){
+	}else if((fxs >0) && (fx1 >0)){
 		vorzeichenGleich = 1;
 	}else{
 		vorzeichenGleich = 0;
@@ -48,17 +52,17 @@ double regula(double x1, double x2, double (*f) (double)){
 	
 }
 
-double f(x){
+double f(double x){
 	return (x*x-9);
 }
 
 int main(){
 	double x1, x2, erg;
 	
-	x1 = -2;
-	x2 = 2;
+	x1 = -1;
+	x2 = 4;
 	erg = regula(x1, x2, f);
-	printf("%d",erg);
+	printf("%f",erg);
 	
 	return 0;
 }
