@@ -13,7 +13,7 @@ main.o: main.c
 			
 
 run:a16
-	valgrind ./a16
+	valgrind ./a16 kunft=yo Haus=Unterkunft
 
 
 clean: 

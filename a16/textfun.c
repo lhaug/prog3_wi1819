@@ -56,16 +56,16 @@ Fundstelle *neueFundstelle(){
 Fundstelle *find(const char *s){
 	int i;
 	int true;
-	char *try;
+	const char *try;
 	char *try2;
-	char *akt = s;
+	const char *akt = s;
 	ListEle *ele;
 	Fundstelle *found;
 	
 	while(akt != '\0'){
 		ele=wordList;
 		while(ele != NULL){
-			if(*akt==ele->suchwort){/*erster Buchstabe ist identisch*/
+			if(*akt==*(ele->suchwort)){/*erster Buchstabe ist identisch*/
 				try = akt;
 				try2 = ele->suchwort;
 				true = 0;
@@ -90,21 +90,32 @@ Fundstelle *find(const char *s){
 		}
 		akt++;
 	}
-	return NULL; /*muss das ein Zeiger sein?*/
-	
+	return NULL;	
 }
 
 int replaceAll(char *s){
 	char *akt = s;
+	char *akt2;
+	char tempo;
+	char *temp;
 	Fundstelle *found;
 	int changes = 0;
+	temp = &tempo;
 	
 	
 	while(*akt != '\0'){
 		found = find(akt);
 		if(found == NULL) return changes;
-		akt = &(found->stelleImSuchstring);/*geht auch? found.stelleImSuchstring*/
 		/*tauschen*/
+		akt = found->stelleImSuchstring;
+		/*rest in temp kopieren*/
+		akt2 = (found->stelleImSuchstring)+strlen((found->ersetzung)->suchwort);
+		strcpy(temp, akt2);
+		/*ersatzwort einfügen*/
+		strcpy(akt, (found->ersetzung)->ersatzwort);
+		/*Rest wieder hinten dran*/
+		akt = akt + strlen((found->ersetzung)->ersatzwort);
+		strcpy(akt, temp);		
 	}
 	
 	return 0;
