@@ -1,0 +1,68 @@
+'''
+Created on 11.12.2018
+
+@author: Lea
+'''
+
+def count_words(datei):
+    d = {}
+    for line in datei:
+        for w in line.split():
+            w = w.lower()
+            if w not in d:
+                d[w] = 1
+            else:
+                d[w] += 1
+            
+    return d
+
+def count_chars(datei):
+    d = {}
+    for line in datei:
+        for word in line.split():
+            for c in word:
+                c = c.lower()
+                if c not in d:
+                    d[c] = 1
+                else:
+                    d[c] += 1
+                
+    return d
+##MAIN
+datei = list(open("a31-midsummernightsdream.txt"))
+
+for i,line in enumerate(datei):
+    if "ACT I" in line:
+        datei = datei[i:]
+        break
+    
+
+print("Zeilen: ",len(datei))
+
+words = count_words(datei)
+chars = count_chars(datei)
+
+# print how many words
+word_sum = 0
+for e in words.values():
+    word_sum += e    
+print("all words: ", word_sum)
+
+# print how many chars
+char_sum = 0
+for e in chars.values():
+    char_sum += e
+print("all chars: ",char_sum)
+
+
+
+print(words)
+for key, val in sorted(words.items(), key=lambda x:x[1], reverse = True)[:25]:
+    print(f'{key:8}',": ", val)
+print(chars)
+for key, val in sorted(chars.items(), key=lambda x:x[1], reverse = True)[:25]:
+    print(key,": ", val)
+
+#d = {}
+
+#d["a"]=0

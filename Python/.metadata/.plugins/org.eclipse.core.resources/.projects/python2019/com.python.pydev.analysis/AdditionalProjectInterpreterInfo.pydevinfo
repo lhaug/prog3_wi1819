@@ -1,0 +1,56 @@
+-- VERSION_5
+-- START DISKCACHE_2
+C:\Users\Lea\Documents\Studium\5. Semester\Prog3\Python\.metadata\.plugins\org.eclipse.core.resources\.projects\python2019\com.python.pydev.analysis\v2_indexcache
+a30.a30|1543927299797745000|C:\Users\Lea\Documents\Studium\5. Semester\Prog3\Python\python2019\a30\a30.py
+a32.__init__|1544524797870838000|C:\Users\Lea\Documents\Studium\5. Semester\Prog3\Python\python2019\a32\__init__.py
+a27.a27|1543924237726290000|C:\Users\Lea\Documents\Studium\5. Semester\Prog3\Python\python2019\a27\a27.py
+a25_26.a25|1543920159996346000|C:\Users\Lea\Documents\Studium\5. Semester\Prog3\Python\python2019\a25_26\a25.py
+a23.a23|1543919362723993000|C:\Users\Lea\Documents\Studium\5. Semester\Prog3\Python\python2019\a23\a23.py
+a32.a32|1544524806827860000|C:\Users\Lea\Documents\Studium\5. Semester\Prog3\Python\python2019\a32\a32.py
+a24.a24|1543919887152185000|C:\Users\Lea\Documents\Studium\5. Semester\Prog3\Python\python2019\a24\a24.py
+a29.a29|1543924975561947000|C:\Users\Lea\Documents\Studium\5. Semester\Prog3\Python\python2019\a29\a29.py
+a31.a31|1544524485669618000|C:\Users\Lea\Documents\Studium\5. Semester\Prog3\Python\python2019\a31\a31.py
+-- END DISKCACHE
+-- START DICTIONARY
+14
+1=C:\Users\Lea\Documents\Studium\5. Semester\Prog3\Python\python2019\a29\a29.py
+14=a23.a23
+9=C:\Users\Lea\Documents\Studium\5. Semester\Prog3\Python\python2019\a27\a27.py
+2=a29.a29
+13=C:\Users\Lea\Documents\Studium\5. Semester\Prog3\Python\python2019\a23\a23.py
+4=a30.a30
+3=C:\Users\Lea\Documents\Studium\5. Semester\Prog3\Python\python2019\a30\a30.py
+10=a27.a27
+11=C:\Users\Lea\Documents\Studium\5. Semester\Prog3\Python\python2019\a24\a24.py
+8=a25_26.a25
+5=C:\Users\Lea\Documents\Studium\5. Semester\Prog3\Python\python2019\a31\a31.py
+7=C:\Users\Lea\Documents\Studium\5. Semester\Prog3\Python\python2019\a25_26\a25.py
+12=a24.a24
+6=a31.a31
+-- END DICTIONARY
+-- START TREE 1
+20
+a|2|a!1^10#1*19@a!3^16#1*35@
+b|2|b!3^17#1*35@b!1^12#1*19@
+c|2|c!1^16#1*19@c!3^18#1*35@
+cha|2|char_sum!5^52#1*51@chars!5^43#1*51@
+cou|2|count_words!5^7#5*50@count_chars!5^19#5*50@
+d|2|d!1^14#1*19@d!3^19#1*35@
+dat|1|datei!5^32#1*51@
+dev|1|devocalize!7^7#5*66@
+dre|1|dreh!9^6#5*82@
+e|1|e!3^20#1*35@
+ggt|1|ggt!3^8#5*34@
+h|1|h!1^6#5*18@
+i|1|i!11^15#1*99@
+lst|1|lst!11^8#1*99@
+m|1|m!11^24#1*99@
+mit|1|mittelwert!3^45#5*34@
+opt|1|opt_ggt!3^27#5*34@
+s|1|s!13^6#1*115@
+wor|2|words!5^42#1*51@word_sum!5^46#1*51@
+z|1|z!11^27#5*99@
+-- END TREE
+-- START TREE 2
+0
+-- END TREE

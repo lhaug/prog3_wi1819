@@ -1,0 +1,37 @@
+'''
+Created on 11.12.2018
+
+@author: Lea
+'''
+
+def count_words(datei):
+    d = {}
+    for line in datei:
+        for w in line.split(" "):
+            w.lower()
+            if w not in d:
+                d[w] = 1
+            else:
+                d[w] = d[w]+1
+            
+    return d
+
+def count_chars(datei):
+    d = {}
+    for line in datei:
+        for c in line:
+            c.lower()
+            if c not in d:
+                
+    
+##MAIN
+datei = list(open("a31-midsummernightsdream.txt"))
+
+print("Zeilen: ",len(datei))
+
+count_words(datei)
+
+
+#d = {}
+
+#d["a"]=0

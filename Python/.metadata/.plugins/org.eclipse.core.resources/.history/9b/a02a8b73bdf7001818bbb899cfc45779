@@ -1,0 +1,14 @@
+'''
+Created on 04.12.2018
+
+@author: Lea
+'''
+
+erg = 0
+def ggt(x, y):
+    if x == y:
+        return x
+    elif x > y:
+        erg = ggt(x-y, y)
+    else:
+        erg = ggt(y, x)

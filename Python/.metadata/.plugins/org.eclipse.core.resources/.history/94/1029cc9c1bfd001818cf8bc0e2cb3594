@@ -1,0 +1,14 @@
+'''
+Created on 11.12.2018
+
+@author: Lea
+'''
+
+##MAIN
+datei = list(open("/a31-midsummernightsdream"))
+
+
+
+d = {}
+
+d["a"]=0

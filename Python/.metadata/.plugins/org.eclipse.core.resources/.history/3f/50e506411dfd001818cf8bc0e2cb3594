@@ -1,0 +1,23 @@
+'''
+Created on 11.12.2018
+
+@author: Lea
+'''
+
+def count_words(datei):
+    d = {}
+    for w in datei:
+        d[w] = d[w]+1
+            
+
+##MAIN
+datei = list(open("a31-midsummernightsdream.txt"))
+
+print("Zeilen: ",len(datei))
+
+count_words(datei)
+
+
+#d = {}
+
+#d["a"]=0

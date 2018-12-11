@@ -1,0 +1,13 @@
+'''
+Created on 04.12.2018
+
+@author: Lea
+'''
+lst = [1, 2, 3]
+for e in lst:
+    print(e)
+    
+i=1
+while i < len(lst):
+    print(lst[i])
+    i +=1 
