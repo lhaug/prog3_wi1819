@@ -22,7 +22,7 @@ class Messwert():
         return("'{}',{}".format(str(self._zeitpunkt), str(self._temperatur)))
     
     def __repr__(self):
-        return("'{}',{}".format(str(self._zeitpunkt), str(self._temperatur)))
+        return("Messwert('{}',{})".format(str(self._zeitpunkt), str(self._temperatur)))
     
     #Problem: other ist ein Tupel, cast in Messwert geht auch nicht
     def __eq__(self, other):
@@ -50,9 +50,11 @@ if __name__ == "__main__":
     mw3 = Messwert("'2019-01-15 17:45:01.356640',20.5")
     print(mw3)
     mwlist = [mw1, mw2, mw3]
-    #print(eval(repr(mw))== mw)
+    print(eval(repr(mw1))== mw1)
     print(mw1 < mw2)
     print(mw2 < mw1)
     print(mw1 < mw3)
     print(mw3 < mw1)
     print(sorted(mwlist))
+    
+    
