@@ -18,14 +18,15 @@ def statistik(dateiname):
                 dic[plz][name] = wert
         else:
             dic[plz] = {name: wert}
-        
-    print(dic)
     
-    keys = sorted(dic)
-    for key in keys:
-        names = sorted(dic[key])
-        x = ["{}: {}({}) ".format(key, x, y) for x, y in names]
-        print(x)
+    plzs = sorted(dic.items())
+    for plz, plz_dict in plzs:
+        ausgabe = "{}:".format(plz)
+        sorted_plz_dict = sorted(plz_dict.items())
+        erg = [" {}({}) ".format(x, y) for x, y in sorted_plz_dict]
+        for e in erg:
+            ausgabe = ausgabe + e
+        print(ausgabe)
     
 statistik("text.txt")
         
