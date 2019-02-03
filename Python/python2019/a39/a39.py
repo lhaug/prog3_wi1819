@@ -9,12 +9,14 @@ class Messwert():
     def __init__(self, *line):
         begin = str(line[0]).replace("'", "")
         if "," in line[0]:
+            # in einem String
             cut = begin.split(",")
             zeitpunkt = cut[0]
-            temperatur = cut[1]
+            temperatur = cut[1].split("\n")[0]
         else:
+            # in zwei parametern
             zeitpunkt =begin
-            temperatur=line[1]
+            temperatur=line[1].split("\n")[0]
         self._zeitpunkt = str(zeitpunkt)
         self._temperatur = float(temperatur)
         
