@@ -41,6 +41,10 @@ class Messwert():
             return True
         else:
             return False
+        
+    def __set__(self):
+        return [self]
+        
     
 if __name__ == "__main__":
     mw1 = Messwert("'2019-01-15 17:45:01.356640',19.5")
@@ -56,5 +60,6 @@ if __name__ == "__main__":
     print(mw1 < mw3)
     print(mw3 < mw1)
     print(sorted(mwlist))
+    # set ?? letzte aufgabe
     
     
