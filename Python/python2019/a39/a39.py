@@ -16,7 +16,7 @@ class Messwert():
         else:
             # in zwei parametern
             zeitpunkt =begin
-            temperatur=line[1].split("\n")[0]
+            temperatur=line[1]
         self._zeitpunkt = str(zeitpunkt)
         self._temperatur = float(temperatur)
         
@@ -44,9 +44,8 @@ class Messwert():
         else:
             return False
         
-    def __set__(self):
-        return [self]
-        
+    def __hash__(self):
+        return hash((self._zeitpunkt, self._temperatur))       
     
 if __name__ == "__main__":
     mw1 = Messwert("'2019-01-15 17:45:01.356640',19.5")
@@ -62,6 +61,6 @@ if __name__ == "__main__":
     print(mw1 < mw3)
     print(mw3 < mw1)
     print(sorted(mwlist))
-    # set ?? letzte aufgabe
+    print( set((mw1, mw2)) )
     
     
