@@ -7,10 +7,11 @@ def statistik(dateiname):
     lines = open(dateiname)
     dic = {}
     for line in lines:
-        linesplit = line.split(";")
+        textonly = line.replace("\n", "")
+        linesplit = textonly.split(";")
         plz = linesplit[0]
         name = linesplit[1]
-        wert = linesplit[2].split()[0]
+        wert = linesplit[2]
         if plz in dic:
             if name in dic[plz]:
                 dic[plz][name] = int(dic[plz][name])+int(wert)
