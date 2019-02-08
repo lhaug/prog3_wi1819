@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include "a4.h"
 
 void schwabify(char *input, char output[]){
   char* akt = input;
