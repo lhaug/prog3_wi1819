@@ -1,7 +1,8 @@
-DATA = rechner
+DATA = a2
+
 .PHONY: run clean
 
-rechner: $(DATA).c
+$(DATA): $(DATA).c
 	cc -g -ansi -pedantic -Wall $(DATA).c -o $(DATA)
 			
 
